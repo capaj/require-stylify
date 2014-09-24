@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Factories/rmjsapi.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/OCM/ocmjsapi.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Services/action_content_svc.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/offline/remote_actions/206B8A60-A631-4CBF-99EB-722DBE7296FA/ctrl.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/offline/remote_actions/B81CE995-B042-4F1E-BC2A-A32BC4916C82/ctrl.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/cucumberConf.js" charset="UTF-8" />
-  </component>
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
 </project>
 

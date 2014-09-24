@@ -32,12 +32,29 @@ module.exports = function (file, opts) {
 		}
 
 
+		if (Array.isArray(cssRequires)) {
+			cssRequires.forEach(function (expr){
+				var cssFilePath = expr.match(/("|')([^"]+)("|')\s*/g)[0];
+				cssFilePath = cssFilePath.substring(1, cssFilePath.length-1);
+
+				var absPath = path.join(absoluteDir, cssFilePath);	//less file absolute path
+				if (fs.existsSync(absPath)) {
+
+					var url = path.relative(opts.rootDir || absoluteDir, absPath);
+					url = url.split('\\').join('/');
+					data = data.replace(expr, '\r\nprependStyle("/' + url + '")');
+
+				} else {
+					throw "Path " + cssFilePath + " failed to find required css file";
+				}
+			});
+		}
+
 		if (Array.isArray(lessRequires)) {
 			lessRequires.forEach(function (expr){
 				var lessFilePath = expr.match(/("|')([^"]+)("|')\s*/g)[0];
 				lessFilePath = lessFilePath.substring(1, lessFilePath.length-1);
 
-				//var files = glob.sync(lessFilePath, {cwd: relativeToFile});
 				var absPath = path.join(absoluteDir, lessFilePath);	//less file absolute path
 				if (fs.existsSync(absPath)) {
 
@@ -61,10 +78,10 @@ module.exports = function (file, opts) {
 					var url = path.relative(opts.rootDir || absoluteDir, absPath);
 					url = url.split('\\').join('/');
 					url = url.replace('.less', '.css');
-					data = data.replace(expr, 'prependStyle("/' + url + '");\r\n');
+					data = data.replace(expr, '\r\nprependStyle("/' + url + '")');
 
 				} else {
-					throw "Path " + lessFilePath + " failed to find required file";
+					throw "Path " + lessFilePath + " failed to find required less file";
 				}
 
 			});
