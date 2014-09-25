@@ -49,5 +49,9 @@ describe('basic style bundles', function() {
 		}));
 	});
 
+	xit('should not include match css require when css support is not defined ind the options', function() {
+
+	})
+
 });
 

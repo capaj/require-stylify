@@ -9,6 +9,13 @@ var prependerAdded = false;
 
 module.exports = function (file, opts) {
 	var data = '';
+	var options = opts.stylifyOptions || {};
+	if (!options.support) {
+		options.support = ['css', 'less', 'sass'];
+	}
+	var supports = function(type) {
+		return options.support.indexOf(type) !== -1;
+	};
 
 	return through(transform, flush);
 
@@ -20,10 +27,18 @@ module.exports = function (file, opts) {
 	function flush (cb) {
 		var self = this;
 		var absoluteDir = path.dirname(file);
-
-		var cssRequires = data.match(/^\s*require\(["'](.+).css["']\)/gm);
-		var lessRequires = data.match(/^\s*require\(["'](.+).less["']\)/gm);
-		var sassRequires = data.match(/^\s*require\(["'](.+).sass["']\)/gm);
+		var cssRequires;
+		var lessRequires;
+		var sassRequires;
+		if (supports('css')) {
+			cssRequires = data.match(/^\s*require\(["'](.+).css["']\)/gm);
+		}
+		if (supports('less')) {
+			lessRequires = data.match(/^\s*require\(["'](.+).less["']\)/gm);
+		}
+		if (supports('sass')) {
+			sassRequires = data.match(/^\s*require\(["'](.+).sass["']\)/gm);
+		}
 
 		var prependerNeeded = (cssRequires !== null || lessRequires !== null || sassRequires !== null);
 
