@@ -91,6 +91,13 @@ module.exports = function (file, opts) {
 
 					});
 					var url = path.relative(opts.rootDir || absoluteDir, absPath);
+					if (url.indexOf('..') === 0 ) {
+						if (opts.rootDir) {
+							throw 'cannot build url to a style ' + url + ' because specified root is lower in the filesystem tree';
+						} else {
+							throw 'cannot build url to a style ' + url + ' because assumed root is lower in the filesystem tree, please specify your rootDir in options';
+						}
+					}
 					url = url.split('\\').join('/');
 					url = url.replace('.less', '.css');
 					data = data.replace(expr, '\r\nappendStyle("/' + url + '")');

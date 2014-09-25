@@ -4,6 +4,25 @@ var through = require('through2');
 var stylifyRequireTransform = require('../../index');
 
 describe('basic style bundles', function() {
+	it('should include main.css element when required from a deeply nested JS file', function(done) {
+		var data = '';
+		browserify({
+			entries: require.resolve('../basic/less/additional_styles/main2.js')
+		}).transform({rootDir: './test/basic'}, stylifyRequireTransform).bundle()		//rootDir: '.'
+			.pipe(through(function(buf, enc, cb) {
+				data += buf;
+				cb();
+			}, function(cb) {
+				var err;
+				if (!(data.split('appendStyle("/less').length === 2)) {
+					err = new Error('expected the bundle to include prependStyle function and one call');
+				}
+
+				cb();
+				done(err);
+			}));
+	});
+
 	it('should include plain.css element when loaded', function(done) {
 		var data = '';
 		browserify({
@@ -34,7 +53,7 @@ describe('basic style bundles', function() {
 			cb();
 		}, function(cb) {
 			var err;
-			if (!(data.split('prependStyle(').length === 4)) {
+			if (!(data.split('appendStyle("/less').length === 2)) {
 				err = new Error('expected the bundle to include prependStyle function and one call');
 			} else {
 				var createdCss = fs.readFileSync('./test/basic/less/main.css', 'utf8');
