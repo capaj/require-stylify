@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/DataServices/ui_data_logic_svc.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Services/action_content_svc.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/less/overlays.less" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/test/mock/AVG_native_mock.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/test/mock/remote_actions/3603.json" charset="UTF-8" />
+  </component>
 </project>
 
