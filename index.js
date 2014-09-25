@@ -57,7 +57,7 @@ module.exports = function (file, opts) {
 
 					var url = path.relative(opts.rootDir || absoluteDir, absPath);
 					url = url.split('\\').join('/');
-					data = data.replace(expr, '\r\nprependStyle("/' + url + '")');
+					data = data.replace(expr, '\r\nappendStyle("/' + url + '")');
 
 				} else {
 					throw "Path " + cssFilePath + " failed to find required css file";
@@ -93,7 +93,7 @@ module.exports = function (file, opts) {
 					var url = path.relative(opts.rootDir || absoluteDir, absPath);
 					url = url.split('\\').join('/');
 					url = url.replace('.less', '.css');
-					data = data.replace(expr, '\r\nprependStyle("/' + url + '")');
+					data = data.replace(expr, '\r\nappendStyle("/' + url + '")');
 
 				} else {
 					throw "Path " + lessFilePath + " failed to find required less file";
