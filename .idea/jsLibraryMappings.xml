@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{require-stylify node_modules}" />
-    <file url="file://$PROJECT_DIR$/style-prepender.js" libraries="{Node.js Globals}" />
+    <file url="file://$PROJECT_DIR$/append-stylesheet.js" libraries="{Node.js Globals}" />
     <file url="PROJECT" libraries="{Node.js v0.10.32 Core Modules, lodash-DefinitelyTyped}" />
   </component>
 </project>

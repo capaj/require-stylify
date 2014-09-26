@@ -4,7 +4,7 @@ var through = require('through2');
 var less = require('less');
 var sass = require('node-sass');
 var path = require('path');
-var prepender = require('./style-prepender');
+var clAppender = require('./append-stylesheet');
 var fs = require('fs');
 var prependerAdded = false;
 var _ = require('lodash');
@@ -45,7 +45,7 @@ module.exports = function (file, opts) {
 		var prependerNeeded = (cssRequires !== null || lessRequires !== null || sassRequires !== null);
 
 		if (prependerNeeded && prependerAdded === false) {
-			data = prepender.toString() + '\r\n' + data;
+			data = clAppender.toString() + '\r\n' + data;
 		}
 
 
