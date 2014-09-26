@@ -4,7 +4,7 @@ var through = require('through2');
 var stylifyRequireTransform = require('../../index');
 
 describe('basic style bundles', function() {
-	it('should include main.css element when required from a deeply nested JS file', function(done) {
+	it('should include lessFile.css element when required from a deeply nested JS file', function(done) {
 		var data = '';
 		browserify({
 			entries: require.resolve('../basic/less/additional_styles/main2.js')
@@ -42,7 +42,7 @@ describe('basic style bundles', function() {
 			}));
 	});
 
-	it('should include both main.css with paragraph color red with 30px font size', function(done) {
+	it('should include both lessFile.css with paragraph color red with 30px font size', function(done) {
 
 		var data = '';
 		browserify({
@@ -56,7 +56,7 @@ describe('basic style bundles', function() {
 			if (!(data.split('appendStyle("/less').length === 2)) {
 				err = new Error('expected the bundle to include prependStyle function and one call');
 			} else {
-				var createdCss = fs.readFileSync('./test/basic/less/main.css', 'utf8');
+				var createdCss = fs.readFileSync('./test/basic/less/lessFile.css', 'utf8');
 				if (createdCss.indexOf('p{font-size:30px}p{color:#ff0000}') === -1) {
 					err = new Error('css file was not compiled from less as expected');
 				}
@@ -68,9 +68,34 @@ describe('basic style bundles', function() {
 		}));
 	});
 
-	xit('should not include match css require when css support is not defined ind the options', function() {
+	xit('should not include match css require when css support is not defined ind the options', function(done) {
 
-	})
+	});
+
+	it('should compile and add SASS files', function(done) {
+		var data = '';
+		browserify({
+			entries: require.resolve('../sass/main.js')
+		}).transform(stylifyRequireTransform).bundle()		//rootDir: '.'
+			.pipe(through(function(buf, enc, cb) {
+				data += buf;
+				cb();
+			}, function(cb) {
+				var err;
+				if (!(data.split('appendStyle("/scss').length === 2)) {
+					err = new Error('expected the bundle to include prependStyle function and one call');
+				} else {
+					var createdCss = fs.readFileSync('./test/sass/scss/sassFile.css', 'utf8');
+					if (createdCss.indexOf('div.fix-height img{height:100%;max-width:none;}') === -1) {
+						err = new Error('css file was not compiled from scss as expected');
+					}
+
+				}
+
+				cb();
+				done(err);
+			}));
+	});
 
 });
 

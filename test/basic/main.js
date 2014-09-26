@@ -1,5 +1,5 @@
 require('./scripts/1.js');
 
-require('./less/main.less');
+require('./less/lessFile.less');
 
 require('./css/plain.css');

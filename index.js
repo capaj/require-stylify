@@ -2,10 +2,12 @@
 
 var through = require('through2');
 var less = require('less');
+var sass = require('node-sass');
 var path = require('path');
 var prepender = require('./style-prepender');
 var fs = require('fs');
 var prependerAdded = false;
+var _ = require('lodash');
 
 module.exports = function (file, opts) {
 	var data = '';
@@ -37,7 +39,7 @@ module.exports = function (file, opts) {
 			lessRequires = data.match(/^\s*require\(["'](.+).less["']\)/gm);
 		}
 		if (supports('sass')) {
-			sassRequires = data.match(/^\s*require\(["'](.+).sass["']\)/gm);
+			sassRequires = data.match(/^\s*require\(["'](.+).scss["']\)/gm);
 		}
 
 		var prependerNeeded = (cssRequires !== null || lessRequires !== null || sassRequires !== null);
@@ -60,7 +62,7 @@ module.exports = function (file, opts) {
 					data = data.replace(expr, '\r\nappendStyle("/' + url + '")');
 
 				} else {
-					throw "Path " + cssFilePath + " failed to find required css file";
+					throw new Error("Path " + cssFilePath + " failed to find required css file");
 				}
 			});
 		}
@@ -93,9 +95,9 @@ module.exports = function (file, opts) {
 					var url = path.relative(opts.rootDir || absoluteDir, absPath);
 					if (url.indexOf('..') === 0 ) {
 						if (opts.rootDir) {
-							throw 'cannot build url to a style ' + url + ' because specified root is lower in the filesystem tree';
+							throw new Error('cannot build url to a style ' + url + ' because specified root is lower in the filesystem tree');
 						} else {
-							throw 'cannot build url to a style ' + url + ' because assumed root is lower in the filesystem tree, please specify your rootDir in options';
+							throw new Error('cannot build url to a style ' + url + ' because assumed root is lower in the filesystem tree, please specify your rootDir in options');
 						}
 					}
 					url = url.split('\\').join('/');
@@ -103,7 +105,46 @@ module.exports = function (file, opts) {
 					data = data.replace(expr, '\r\nappendStyle("/' + url + '")');
 
 				} else {
-					throw "Path " + lessFilePath + " failed to find required less file";
+					throw new Error("Path " + lessFilePath + " failed to find required less file");
+				}
+
+			});
+		}
+
+		if (Array.isArray(sassRequires)) {
+			sassRequires.forEach(function (expr){
+				var sassFilePath = expr.match(/("|')([^"]+)("|')\s*/g)[0];
+				sassFilePath = sassFilePath.substring(1, sassFilePath.length-1);
+
+				var absPath = path.join(absoluteDir, sassFilePath);	//less file absolute path
+				if (fs.existsSync(absPath)) {
+
+					//TODO we could make a crc which will indicate the last compiled file and compile only when crc changes
+					var sassSourceText = fs.readFileSync(absPath, 'utf8');
+
+					var sassOpts = {
+						data: sassSourceText,
+						outputStyle: 'compressed'
+					};
+					_.extend(sassOpts, opts.sass);
+
+					var sassOutput = sass.renderSync(sassOpts);
+					fs.writeFileSync(absPath.replace('.scss','.css'), sassOutput);
+
+					var url = path.relative(opts.rootDir || absoluteDir, absPath);
+					if (url.indexOf('..') === 0 ) {
+						if (opts.rootDir) {
+							throw new Error('cannot build url to a style ' + url + ' because specified root is lower in the filesystem tree');
+						} else {
+							throw new Error('cannot build url to a style ' + url + ' because assumed root is lower in the filesystem tree, please specify your rootDir in options');
+						}
+					}
+					url = url.split('\\').join('/');
+					url = url.replace('.scss', '.css');
+					data = data.replace(expr, '\r\nappendStyle("/' + url + '")');
+
+				} else {
+					throw new Error("Path " + sassFilePath + " failed to find required less file");
 				}
 
 			});

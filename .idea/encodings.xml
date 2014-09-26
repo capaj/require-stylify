@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/Gruntfile.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/index.html" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Apps/module.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/DataServices/ui_data_logic_svc.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/module.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Services/action_content_svc.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Zen.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/zen_bundle.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/zen_main.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/less/overlays.less" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/node_modules/require-globify/index.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/package.json" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/test/mock/AVG_native_mock.js" charset="UTF-8" />
-    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/test/mock/remote_actions/3603.json" charset="UTF-8" />
-  </component>
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
 </project>
 
