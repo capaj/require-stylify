@@ -1,6 +1,6 @@
 {
   "name": "require-stylify",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "transform for browserify, which allows to require CSS, LESS and SASS style sheets ",
   "main": "index.js",
   "scripts": {

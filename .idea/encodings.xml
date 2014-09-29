@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/Gruntfile.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/index.html" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/indexAbout.html" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Apps/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Common/common_svc.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Common/copy_own_properties.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Common/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Controllers/link_login_ctrl.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Controllers/main_ctrl.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Controllers/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/DataServices/data_svc.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/DataServices/ui_data_logic_svc.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/adjust_text.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/blur_on_click.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/z_action_frame.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/z_iframe_link_click.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/z_iframe_secure_load.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/z_offline_bubble.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/z_status_icon.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Directives/zn_controls.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Factories/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Factories/zen_global.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Filters/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Logging/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/OCM/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Services/action_content_svc.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Services/bubbles_creator.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Services/modal_svc.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Services/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Services/msg_window_data.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/Services/tu_bubbles_table.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/app.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/module.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/Zen/state_cfg.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/bootstrapWithJSONs.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/js/zen_main.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/less/bubble.less" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/less/overlays.less" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/offline/remote_actions/8483CE84-7982-437D-B9BF-B0679601EB00/bubble.html" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/app/templates/appBubbleTmpl.html" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/node_modules/require-globify/index.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/package.json" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/test/mock/AVG_native_mock.js" charset="UTF-8" />
+    <file url="file://C:/git_devel/zen/gui/zuiplugin_dll/test/mock/sc/APPS_AV_78066/disabled.json" charset="UTF-8" />
+  </component>
 </project>
 

@@ -97,5 +97,30 @@ describe('basic style bundles', function() {
 			}));
 	});
 
+	xit('should compile and add LESS/SASS files to html file when this file is specified as second parameter', function(done) {
+		var data = '';
+		browserify({
+			entries: require.resolve('../direct_to_html/main.js')
+		}).transform(stylifyRequireTransform).bundle()		//rootDir: '.'
+			.pipe(through(function(buf, enc, cb) {
+				data += buf;
+				cb();
+			}, function(cb) {
+				var err;
+				if (!(data.split('appendStyle("/scss').length === 1)) {
+					err = new Error('expected the bundle to include prependStyle function and one call');
+				} else {
+					var createdCss = fs.readFileSync('./test/sass/scss/sassFile.css', 'utf8');
+					if (createdCss.indexOf('div.fix-height img{height:100%;max-width:none;}') === -1) {
+						err = new Error('css file was not compiled from scss as expected');
+					}
+
+				}
+
+				cb();
+				done(err);
+			}));
+	});
+
 });
 
