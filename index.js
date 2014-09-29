@@ -72,7 +72,8 @@ module.exports = function (file, opts) {
 
 			if (Array.isArray(expressions.less)) {
 				expressions.less.forEach(function (expr){
-					var lessFilePath = matchArgs(expr)[0];
+					var args = matchArgs(expr);
+					var lessFilePath = args[0];
 
 					var absPath = path.join(absoluteDir, lessFilePath);	//less file absolute path
 					if (fs.existsSync(absPath)) {
@@ -104,7 +105,17 @@ module.exports = function (file, opts) {
 						}
 						url = url.split('\\').join('/');
 						url = url.replace('.less', '.css');
-						data = data.replace(expr, '\r\nappendStyle("/' + url + '")');
+						if (args[1]) {	//path to index
+							var htmlPath = path.join(absoluteDir, args[1]);
+							data = data.replace(expr, '');	//removing require from scripts
+							if (fs.existsSync(htmlPath)) {
+								var htmlFile = fs.readFileSync(htmlPath, 'utf8');
+								htmlFile.replace('</head>', '<link rel="stylesheet" href="' + url + '">\r\n</head>');
+								fs.writeFileSync(htmlFile);
+							}
+						} else {
+							data = data.replace(expr, '\r\nappendStyle("/' + url + '")');
+						}
 
 					} else {
 						throw new Error("Path " + lessFilePath + " failed to find required less file");
