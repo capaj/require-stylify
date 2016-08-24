@@ -1,6 +1,6 @@
 require-stylify
 ===============
-
+This package is DEPRECATED. Find packages for styles under active development [here](https://github.com/substack/node-browserify/wiki/list-of-transforms).
 require styles in your browserify builds, same as you require your js files:
 
 ```javascript
